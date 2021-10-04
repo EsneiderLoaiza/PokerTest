@@ -7,7 +7,14 @@ class PokerTest {
     @DisplayName("Blanco: 2H 3D 5S 9C KD  Negro: 2C 3H 4S 8C AH Negro gana. - con la carta alta: As ")
     @Test
     void testCartaAlta() {
-        fail("no implementado");
+
+        //PLAYER 1
+        /*Card card1 = new Card(2, Palo.C);
+        Card card2 = new Card(3, Palo.D);
+        Card card3 = new Card(4, Palo.H);
+        Card card4 = new Card(5, Palo.S);
+        Card card5 = new Card(6, Palo.C);*/
+
     }
 
     @DisplayName("Blanco: 2H 3D 5S 9C KD  Negro: 2C 3H 4S 8C 2C Blanco gana. - con la carta alta: Rey ")
