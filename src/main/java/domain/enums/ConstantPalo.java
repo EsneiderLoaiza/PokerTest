@@ -1,6 +1,6 @@
 package domain.enums;
 
-public class PaloConstant {
+public class ConstantPalo {
 
     final private static int C = 11;
     final private static int D = 12;
