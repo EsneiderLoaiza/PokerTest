@@ -1,19 +1,61 @@
+import domain.Card;
+import domain.Hand;
+import domain.Player;
+import domain.enums.Palo;
+import domain.impl.ManosPokerImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 class PokerTest {
     @DisplayName("Blanco: 2H 3D 5S 9C KD  Negro: 2C 3H 4S 8C AH Negro gana. - con la carta alta: As ")
     @Test
     void testCartaAlta() {
 
+        // Given
         //PLAYER 1
-        /*Card card1 = new Card(2, Palo.C);
+        Card card1 = new Card(2, Palo.C);
         Card card2 = new Card(3, Palo.D);
         Card card3 = new Card(4, Palo.H);
         Card card4 = new Card(5, Palo.S);
-        Card card5 = new Card(6, Palo.C);*/
+        Card card5 = new Card(6, Palo.C);
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = card1;
+        listCard1[1] = card2;
+        listCard1[2] = card3;
+        listCard1[3] = card4;
+        listCard1[4] = card5;
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+        Card card6 = new Card(2, Palo.C);
+        Card card7 = new Card(3, Palo.D);
+        Card card8 = new Card(4, Palo.H);
+        Card card9 = new Card(5, Palo.S);
+        Card card10 = new Card(6, Palo.C);
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = card1;
+        listCard2[1] = card2;
+        listCard2[2] = card3;
+        listCard2[3] = card4;
+        listCard2[4] = card5;
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.cartaAlta(player1, player2);
+
+        //Then
+        final String expected = "Prueba";
+        assertEquals(expected, actual);
 
     }
 
