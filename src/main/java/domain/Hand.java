@@ -3,7 +3,7 @@ package domain;
 
 public class Hand {
 
-    Card[] hand = new Card[5];
+    Card[] hand;
 
     public Hand(Card[] hand) {
         this.hand = hand;
