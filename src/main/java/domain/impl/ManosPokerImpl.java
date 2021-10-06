@@ -10,16 +10,25 @@ public class ManosPokerImpl implements IManosPoker {
 
     public String cartaAlta(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
-        int valuePlayer1 = countCartas(cardsPlayer1);
-        int valuePlayer2 = countCartas(cardsPlayer1);
-         if(cardsPlayer1[0].getValorCarta() == cardsPlayer1[0].getValorCarta()) {
-            return "Prueba";
+        Card[] cardsPlayer2 = player2.hand.getHand();
+
+        int player1Value = countCartas(cardsPlayer1, player1);
+        int player2Value = countCartas(cardsPlayer2, player2);
+
+         if(player1Value > player2Value) {
+            return "Jugador 1 gana por carta alta";
          }
-        return "Prueba";
+        return "Jugador 2 gana por carta alta";
     }
 
-    private int countCartas(Card[] cartas){
-        return  1; //Cuenta cartas para sacar valor de cada mano
+    public int countCartas(Card[] cartas, Player player){
+        int totalValue = 0;
+        int totalValuePalo = 0;
+        for(int i=0; i<5; i++) {
+            totalValue = totalValue + cartas[i].getValorCarta() + cartas[i].getPalo().getPaloValue();
+            //totalValuePalo = totalValuePalo + cartas[i].getPalo().getPaloValue();
+        }
+        return  totalValue;
     }
 
     public String par(Player player1, Player player2) {

@@ -7,6 +7,17 @@ public enum Palo {
     H(13),
     S(14);
 
-    Palo(int i) {
+    private int paloValue;
+
+    Palo(int paloValue) {
+        this.paloValue = paloValue;
+    }
+
+    public int getPaloValue() {
+        return paloValue;
+    }
+
+    public void setPaloValue(int paloValue) {
+        this.paloValue = paloValue;
     }
 }
