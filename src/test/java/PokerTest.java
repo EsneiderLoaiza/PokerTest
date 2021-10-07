@@ -12,8 +12,6 @@ import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
 
-
-
 public class PokerTest {
     @DisplayName("Blanco: 2H 3D 5S 9C KD  Negro: 2C 3H 4S 8C AH Negro gana. - con la carta alta: As ")
     @Test
@@ -159,21 +157,79 @@ public class PokerTest {
         assertEquals(expected, actual);
     }
 
-	/*
+
     //dos pares
 
     @DisplayName("Blanco: 2H 3D 3S KC KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con dos pares: Rey y Tres")
     @Test
-    void testDosPares() {
-        fail("no implementado");
+    public void testDosPares() {
+
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(8, Palo.C);
+        listCard1[1] = new Card(8, Palo.D);
+        listCard1[2] = new Card(4, Palo.H);
+        listCard1[3] = new Card(4, Palo.S);
+        listCard1[4] = new Card(6, Palo.C);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(2, Palo.C);
+        listCard2[1] = new Card(2, Palo.D);
+        listCard2[2] = new Card(4, Palo.H);
+        listCard2[3] = new Card(4, Palo.S);
+        listCard2[4] = new Card(6, Palo.C);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.dosPares(player1, player2);
+
+        //Then
+        final String expected = "Jugador 1 gana por dos pares mas alto";
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3H 3S AC AH Negro gana. - con dos pares: As y Tres ")
     @Test
-    void testDosPares2() {
-        fail("no implementado");
-    }
+    public void testDosPares2() {
 
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(2, Palo.C);
+        listCard1[1] = new Card(2, Palo.D);
+        listCard1[2] = new Card(4, Palo.H);
+        listCard1[3] = new Card(4, Palo.S);
+        listCard1[4] = new Card(6, Palo.C);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(8, Palo.C);
+        listCard2[1] = new Card(8, Palo.D);
+        listCard2[2] = new Card(4, Palo.H);
+        listCard2[3] = new Card(4, Palo.S);
+        listCard2[4] = new Card(6, Palo.C);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.dosPares(player1, player2);
+
+        //Then
+        final String expected = "Jugador 2 gana por dos pares mas alto";
+        assertEquals(expected, actual);
+    }
+    /*
     // terna
 
     @DisplayName("Blanco: 2H 3D KS KC KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con Terna: Rey ")
