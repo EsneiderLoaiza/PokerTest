@@ -35,7 +35,7 @@ public class ManosPokerImpl implements IManosPoker {
         for(int i=0; i<5; i++) {
             previousValue = cartas[i].getValorCarta();
             for (int j=0; j<5; j++) {
-                if(previousValue == cartas[i+1].getValorCarta() && previousValue%2 == 0) {
+                if(previousValue == cartas[i+1].getValorCarta() && cartas[i+1].getValorCarta()%2 == 0) {
                     repeatedValue = previousValue;
                     return  repeatedValue;
                 }
@@ -61,9 +61,38 @@ public class ManosPokerImpl implements IManosPoker {
     }
 
     public String dosPares(Player player1, Player player2) {
-        if(player1.hand.equals(player2.hand)) {
-            return cartaAlta(player1, player2);
+        Card[] cardsPlayer1 = player1.hand.getHand();
+        Card[] cardsPlayer2 = player2.hand.getHand();
+
+        int player1Value = helpToDosPares(cardsPlayer1);
+        int player2Value = helpToDosPares(cardsPlayer2);
+
+        if(player1Value > player2Value) {
+            return "Jugador 1 gana por dos pares mas alto";
         }
-        return null;
+        if(player1Value < player2Value) {
+            return "Jugador 2 gana por dos pares mas alto";
+        }
+        return cartaAlta(player1, player2);
+    }
+
+    public int helpToDosPares(Card[] cartas) {
+        int previousValue = 0;
+        int repeatedValue = 0;
+        int count = 0;
+        for(int i=0; i<5; i++) {
+             if(cartas[i].getValorCarta() == cartas[i+1].getValorCarta() && cartas[i+1].getValorCarta()%2 == 0) {
+                repeatedValue = cartas[i].getValorCarta();
+                count++;
+                if(count == 1){
+                   previousValue = repeatedValue;
+                }
+                if(count == 2){
+                	repeatedValue = repeatedValue + previousValue;
+                    return  repeatedValue;
+                 }
+             }     
+        }
+        return  repeatedValue;
     }
 }
