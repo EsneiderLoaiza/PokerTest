@@ -29,13 +29,13 @@ public class ManosPokerImpl implements IManosPoker {
         return  totalValue;
     }
 
-    public int compareCards(Card[] cartas, Player player) {
+    public int compareCards(Card[] cartas) {
         int previousValue = 0;
         int repeatedValue = 0;
         for(int i=0; i<5; i++) {
             previousValue = cartas[i].getValorCarta();
             for (int j=0; j<5; j++) {
-                if(previousValue == cartas[i+1].getValorCarta()) {
+                if(previousValue == cartas[i+1].getValorCarta() && previousValue%2 == 0) {
                     repeatedValue = previousValue;
                     return  repeatedValue;
                 }
@@ -48,13 +48,16 @@ public class ManosPokerImpl implements IManosPoker {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
 
-        int player1Value = compareCards(cardsPlayer1, player1);
-        int player2Value = compareCards(cardsPlayer2, player2);
+        int player1Value = compareCards(cardsPlayer1);
+        int player2Value = compareCards(cardsPlayer2);
 
         if(player1Value > player2Value) {
             return "Jugador 1 gana por par más alto";
         }
-        return "Jugador 2 gana por par más alto";
+        if(player1Value < player2Value) {
+            return "Jugador 2 gana por par más alto";
+        }
+        return cartaAlta(player1, player2);
     }
 
     public String dosPares(Player player1, Player player2) {
