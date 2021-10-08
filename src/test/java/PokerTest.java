@@ -3,6 +3,7 @@ import domain.Card;
 import domain.Hand;
 import domain.Player;
 import domain.enums.Palo;
+import domain.enums.ValueCard;
 import domain.impl.ManosPokerImpl;
 
 
@@ -22,21 +23,21 @@ public class PokerTest {
         //PLAYER 1
 
         Card[] listCard1 = new Card[5];
-        listCard1[0] = new Card(2, Palo.C);
-        listCard1[1] = new Card(3, Palo.D);
-        listCard1[2] = new Card(4, Palo.H);
-        listCard1[3] = new Card(8, Palo.S);
-        listCard1[4] = new Card(6, Palo.C);
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.NUEVE, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
         Player player1 = new Player(new Hand(listCard1));
 
         //PLAYER 2
 
         Card[] listCard2 = new Card[5];
-        listCard2[0] = new Card(2, Palo.C);
-        listCard2[1] = new Card(3, Palo.D);
-        listCard2[2] = new Card(4, Palo.H);
-        listCard2[3] = new Card(5, Palo.S);
-        listCard2[4] = new Card(6, Palo.C);
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
         Player player2 = new Player(new Hand(listCard2));
 
         // When
@@ -44,7 +45,8 @@ public class PokerTest {
         final String actual = manosPoker.cartaAlta(player1, player2);
 
         //Then
-        final String expected = "Jugador 1 gana por carta alta";
+        final String expected = "(Negro)Jugador 2 gana por carta alta";
+        System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
 
     }
@@ -58,21 +60,21 @@ public class PokerTest {
         //PLAYER 1
 
         Card[] listCard1 = new Card[5];
-        listCard1[0] = new Card(2, Palo.C);
-        listCard1[1] = new Card(3, Palo.D);
-        listCard1[2] = new Card(4, Palo.H);
-        listCard1[3] = new Card(8, Palo.S);
-        listCard1[4] = new Card(6, Palo.C);
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.NUEVE, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
         Player player1 = new Player(new Hand(listCard1));
 
         //PLAYER 2
 
         Card[] listCard2 = new Card[5];
-        listCard2[0] = new Card(2, Palo.C);
-        listCard2[1] = new Card(3, Palo.D);
-        listCard2[2] = new Card(4, Palo.H);
-        listCard2[3] = new Card(9, Palo.S);
-        listCard2[4] = new Card(8, Palo.C);
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.DOS, Palo.C);
         Player player2 = new Player(new Hand(listCard2));
 
         // When
@@ -80,7 +82,8 @@ public class PokerTest {
         final String actual = manosPoker.cartaAlta(player1, player2);
 
         //Then
-        final String expected = "Jugador 2 gana por carta alta";
+        final String expected = "(Blanco)Jugador 1 gana por carta alta";
+        System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -95,21 +98,21 @@ public class PokerTest {
         //PLAYER 1
 
         Card[] listCard1 = new Card[5];
-        listCard1[0] = new Card(2, Palo.C);
-        listCard1[1] = new Card(2, Palo.D);
-        listCard1[2] = new Card(4, Palo.H);
-        listCard1[3] = new Card(8, Palo.S);
-        listCard1[4] = new Card(6, Palo.C);
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.DOS, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.KING, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
         Player player1 = new Player(new Hand(listCard1));
 
         //PLAYER 2
 
         Card[] listCard2 = new Card[5];
-        listCard2[0] = new Card(2, Palo.C);
-        listCard2[1] = new Card(3, Palo.D);
-        listCard2[2] = new Card(4, Palo.H);
-        listCard2[3] = new Card(4, Palo.S);
-        listCard2[4] = new Card(6, Palo.C);
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
         Player player2 = new Player(new Hand(listCard2));
 
         // When
@@ -117,7 +120,8 @@ public class PokerTest {
         final String actual = manosPoker.par(player1, player2);
 
         //Then
-        final String expected = "Jugador 2 gana por par más alto";
+        final String expected = "(Blanco)Jugador 1 gana por par más alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -131,21 +135,21 @@ public class PokerTest {
         //PLAYER 1
 
         Card[] listCard1 = new Card[5];
-        listCard1[0] = new Card(6, Palo.C);
-        listCard1[1] = new Card(6, Palo.D);
-        listCard1[2] = new Card(4, Palo.H);
-        listCard1[3] = new Card(8, Palo.S);
-        listCard1[4] = new Card(6, Palo.C);
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
         Player player1 = new Player(new Hand(listCard1));
 
         //PLAYER 2
 
         Card[] listCard2 = new Card[5];
-        listCard2[0] = new Card(2, Palo.C);
-        listCard2[1] = new Card(3, Palo.D);
-        listCard2[2] = new Card(4, Palo.H);
-        listCard2[3] = new Card(4, Palo.S);
-        listCard2[4] = new Card(6, Palo.C);
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.AS, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
         Player player2 = new Player(new Hand(listCard2));
 
         // When
@@ -153,7 +157,8 @@ public class PokerTest {
         final String actual = manosPoker.par(player1, player2);
 
         //Then
-        final String expected = "Jugador 1 gana por par más alto";
+        final String expected = "(Negro)Jugador 2 gana por par más alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -169,21 +174,21 @@ public class PokerTest {
         //PLAYER 1
 
         Card[] listCard1 = new Card[5];
-        listCard1[0] = new Card(8, Palo.C);
-        listCard1[1] = new Card(8, Palo.D);
-        listCard1[2] = new Card(4, Palo.H);
-        listCard1[3] = new Card(4, Palo.S);
-        listCard1[4] = new Card(6, Palo.C);
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.TRES, Palo.S);
+        listCard1[3] = new Card(ValueCard.KING, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
         Player player1 = new Player(new Hand(listCard1));
 
         //PLAYER 2
 
         Card[] listCard2 = new Card[5];
-        listCard2[0] = new Card(2, Palo.C);
-        listCard2[1] = new Card(2, Palo.D);
-        listCard2[2] = new Card(4, Palo.H);
-        listCard2[3] = new Card(4, Palo.S);
-        listCard2[4] = new Card(6, Palo.C);
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
         Player player2 = new Player(new Hand(listCard2));
 
         // When
@@ -191,7 +196,8 @@ public class PokerTest {
         final String actual = manosPoker.dosPares(player1, player2);
 
         //Then
-        final String expected = "Jugador 1 gana por dos pares mas alto";
+        final String expected = "(Blanco)Jugador 1 gana por dos pares mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -204,21 +210,21 @@ public class PokerTest {
         //PLAYER 1
 
         Card[] listCard1 = new Card[5];
-        listCard1[0] = new Card(2, Palo.C);
-        listCard1[1] = new Card(2, Palo.D);
-        listCard1[2] = new Card(4, Palo.H);
-        listCard1[3] = new Card(4, Palo.S);
-        listCard1[4] = new Card(6, Palo.C);
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
         Player player1 = new Player(new Hand(listCard1));
 
         //PLAYER 2
 
         Card[] listCard2 = new Card[5];
-        listCard2[0] = new Card(8, Palo.C);
-        listCard2[1] = new Card(8, Palo.D);
-        listCard2[2] = new Card(4, Palo.H);
-        listCard2[3] = new Card(4, Palo.S);
-        listCard2[4] = new Card(6, Palo.C);
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.TRES, Palo.S);
+        listCard2[3] = new Card(ValueCard.AS, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
         Player player2 = new Player(new Hand(listCard2));
 
         // When
@@ -226,39 +232,160 @@ public class PokerTest {
         final String actual = manosPoker.dosPares(player1, player2);
 
         //Then
-        final String expected = "Jugador 2 gana por dos pares mas alto";
+        final String expected = "(Negro)Jugador 2 gana por dos pares mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
-    /*
+
     // terna
 
     @DisplayName("Blanco: 2H 3D KS KC KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con Terna: Rey ")
     @Test
-    void testTerna() {
-        fail("no implementado");
+    public void testTerna() {
+
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.KING, Palo.S);
+        listCard1[3] = new Card(ValueCard.KING, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.terna(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana por dos pares mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3H AS AC AH Negro gana. - con Terna: As ")
     @Test
-    void testTerna2() {
-        fail("no implementado");
+    public void testTerna2() {
+
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.AS, Palo.S);
+        listCard2[3] = new Card(ValueCard.AS, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.terna(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana por dos pares mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
 
     // escalera
     @DisplayName("Blanco: 2H 3D 4S 5C 6D  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera ")
     @Test
-    void testEscalera() {
-        fail("no implementado");
+    public void testEscalera() {
+
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard1[3] = new Card(ValueCard.CINCO, Palo.C);
+        listCard1[4] = new Card(ValueCard.SEIS, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.escalera(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana por dos pares mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3H 4S 5C 6H Negro gana. - con Escalera ")
     @Test
-    void testEscalera2() {
-        fail("no implementado");
+    public void testEscalera2() {
+
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.CINCO, Palo.C);
+        listCard2[4] = new Card(ValueCard.SEIS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.escalera(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana por dos pares mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
-
+    /*
     // color
     @DisplayName("Blanco: 2H 3H 5H KH 8H  Negro: 2C 3H 4S 8C AH Blanco gana. - con color ")
     @Test
