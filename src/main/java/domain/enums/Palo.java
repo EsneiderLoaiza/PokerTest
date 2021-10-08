@@ -2,10 +2,10 @@ package domain.enums;
 
 public enum Palo {
 
-    C(11),
-    D(12),
-    H(13),
-    S(14);
+    C(0),
+    D(0),
+    H(0),
+    S(0);
 
     private int paloValue;
 
