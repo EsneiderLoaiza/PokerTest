@@ -1,14 +1,15 @@
 package domain;
 
 import domain.enums.Palo;
+import domain.enums.ValueCard;
 
 public class Card {
 
-    private int valorCarta;
+    private ValueCard valueCard;
     private Palo palo;
 
-    public Card(int valorCarta, Palo palo) {
-        this.valorCarta = valorCarta;
+    public Card(ValueCard valueCard, Palo palo) {
+        this.valueCard = valueCard;
         this.palo = palo;
     }
 
@@ -16,12 +17,12 @@ public class Card {
         super();
     }
 
-    public int getValorCarta() {
-        return valorCarta;
+    public ValueCard getValueCard() {
+        return valueCard;
     }
 
-    public void setValorCarta(int valorCarta) {
-        this.valorCarta = valorCarta;
+    public void setValueCard(ValueCard valueCard) {
+        this.valueCard = valueCard;
     }
 
     public Palo getPalo() {
