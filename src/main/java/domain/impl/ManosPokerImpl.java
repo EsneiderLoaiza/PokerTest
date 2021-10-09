@@ -1,6 +1,7 @@
 package domain.impl;
 
 import domain.Card;
+import domain.HelpToCompleteHands;
 import domain.Player;
 import domain.interfaces.IManosPoker;
 
@@ -14,8 +15,8 @@ public class ManosPokerImpl implements IManosPoker {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
 
-        int player1Value = countCartas(cardsPlayer1);
-        int player2Value = countCartas(cardsPlayer2);
+        int player1Value = HelpToCompleteHands.highValueSearch(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.highValueSearch(cardsPlayer2);
 
          if(player1Value > player2Value) {
             return "(Blanco)Jugador 1 gana por carta alta";
@@ -23,22 +24,14 @@ public class ManosPokerImpl implements IManosPoker {
         return "(Negro)Jugador 2 gana por carta alta";
     }
 
-    public int countCartas(Card[] cartas){
-        int highValue = 0;
-        for(int i=0; i<5; i++) {
-            	if(cartas[i].getValueCard().getValueCard() > highValue) {
-            		highValue = cartas[i].getValueCard().getValueCard();
-            	}
-        }
-        return  highValue;
-    }
+    
 
     public String par(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
 
-        int player1Value = compareCards(cardsPlayer1);
-        int player2Value = compareCards(cardsPlayer2);
+        int player1Value = HelpToCompleteHands.highValueSearchInParInPar(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.highValueSearchInParInPar(cardsPlayer2);
 
         if(player1Value > player2Value) {
             return "(Blanco)Jugador 1 gana por par mas alto";
@@ -49,25 +42,13 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
-    public int compareCards(Card[] cartas) {
-        int repeatedValue = 0;
-        for(int i=0; i<5; i++) {
-            for (int j=i+1; j<5; j++) {
-                if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                    repeatedValue = cartas[i].getValueCard().getValueCard();
-                    return  repeatedValue;
-                }
-            }
-        }
-        return repeatedValue;
-    }
 
     public String dosPares(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
 
-        int player1Value = helpToDosPares(cardsPlayer1);
-        int player2Value = helpToDosPares(cardsPlayer2);
+        int player1Value = HelpToCompleteHands.highValueSearchInParInTwoPar(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.highValueSearchInParInTwoPar(cardsPlayer2);
 
         if(player1Value > player2Value) {
             return "(Blanco)Jugador 1 gana por dos pares mas alto";
@@ -78,29 +59,13 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
-    public int helpToDosPares(Card[] cartas) {
-        int repeatedValue = 0;
-        int timesRepeated = 0;
-        for(int i=0; i<5; i++) {
-             for(int j=i+1; j<5; j++) {
-                 if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                     repeatedValue = cartas[i].getValueCard().getValueCard();
-                     timesRepeated++;
-                     if(timesRepeated == 2){
-                         return  repeatedValue;
-                     }
-                 }
-             }
-        }
-        return  repeatedValue;
-    }
 
     public String terna(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
 
-        int player1Value = helpToTerna(cardsPlayer1);
-        int player2Value = helpToTerna(cardsPlayer2);
+        int player1Value = HelpToCompleteHands.highValueSearchThreeTimes(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.highValueSearchThreeTimes(cardsPlayer2);
 
         if(player1Value > player2Value) {
             return "(Blanco)Jugador 1 gana por terna mas alta";
@@ -111,29 +76,14 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
-    public int helpToTerna(Card[] cartas){
-        int repeatedValue = 0;
-        int timesRepeated = 0;
-        for(int i=0; i<5; i++) {
-            for (int j=i+1; j<5; j++) {
-                if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                    repeatedValue = cartas[i].getValueCard().getValueCard();
-                    timesRepeated++;
-                    if(timesRepeated == 3){
-                        return  repeatedValue;
-                    }
-                }
-            }
-        }
-        return 0;
-    }
+
 
     public String escalera(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
 
-        int player1Value = helpToEscalera(cardsPlayer1);
-        int player2Value = helpToEscalera(cardsPlayer2);
+        int player1Value = HelpToCompleteHands.reviewConsecutiveValues(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.reviewConsecutiveValues(cardsPlayer2);
 
         if(player1Value > player2Value) {
             return "(Blanco)Jugador 1 gana por escalera mas alta";
@@ -144,22 +94,21 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
-    public int helpToEscalera(Card[] cartas){
-        Arrays.sort(cartas);
-        int increase = 0;
-        for(int i=1; i<5; i++) {
-            for (int j=i+1 ; j<5; j++){
-                if(cartas[i].getValueCard().getValueCard() > cartas[j].getValueCard().getValueCard() && 
-                cartas[j].getValueCard().getValueCard() == cartas[i].getValueCard().getValueCard() -1 &&
-                cartas[i].getValueCard().getValueCard() < cartas[j].getValueCard().getValueCard() && 
-                cartas[j].getValueCard().getValueCard() == cartas[i].getValueCard().getValueCard() +1){
-                    increase++;
-                }
-                if(increase == 4) {
-                    return cartas[4].getValueCard().getValueCard();
-                }
-            }
+    
+    public String poker(Player player1, Player player2) {
+        Card[] cardsPlayer1 = player1.hand.getHand();
+        Card[] cardsPlayer2 = player2.hand.getHand();
+
+        int player1Value = HelpToCompleteHands.findFourRepeatedValues(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.findFourRepeatedValues(cardsPlayer2);
+
+        if(player1Value > player2Value) {
+            return "(Blanco)Jugador 1 gana por poker mas alto";
         }
-        return 0;
+        if(player1Value < player2Value) {
+            return "(Negro)Jugador 2 gana por poker mas alto";
+        }
+        return cartaAlta(player1, player2);
     }
+    
 }
