@@ -9,6 +9,7 @@ import domain.impl.ManosPokerImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.DisplayName;
 
@@ -314,6 +315,7 @@ public class PokerTest {
 
     // escalera
     @DisplayName("Blanco: 2H 3D 4S 5C 6D  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera ")
+    @Ignore
     @Test
     public void testEscalera() {
 
@@ -350,6 +352,7 @@ public class PokerTest {
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3H 4S 5C 6H Negro gana. - con Escalera ")
+    @Ignore
     @Test
     public void testEscalera2() {
 
@@ -411,21 +414,79 @@ public class PokerTest {
     void testFullHouse2() {
         fail("no implementado");
     }
-
+	*/
     // poker
     @DisplayName("Blanco: 2H 2D 2S 2C KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con poker: 2 ")
     @Test
-    void testPoker() {
-        fail("no implementado");
+    public void testPoker() {
+    	// Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.DOS, Palo.D);
+        listCard1[2] = new Card(ValueCard.DOS, Palo.S);
+        listCard1[3] = new Card(ValueCard.DOS, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.poker(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana por poker mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 2H 2S 2D KH Negro gana. - con poker: 2 ")
     @Test
-    void testPoker2() {
-        fail("no implementado");
+    public void testPoker2() {
+    	// Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.DOS, Palo.H);
+        listCard2[2] = new Card(ValueCard.DOS, Palo.S);
+        listCard2[3] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[4] = new Card(ValueCard.KING, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.poker(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana por poker mas alto";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
-
+    /*
     // escalera color
     @DisplayName("Blanco: 2H 3H 4H 5H 6H  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera Color: Corazon")
     @Test
