@@ -5,7 +5,6 @@ import domain.Player;
 
 public interface IManosPoker {
 
-    public int countCartas(Card[] cartas);
 
     public String cartaAlta(Player player1, Player player2);
 
@@ -16,5 +15,7 @@ public interface IManosPoker {
     public String terna(Player player1, Player player2);
 
     public String escalera(Player player1, Player player2);
+    
+    public String poker(Player player1, Player player2);
 
 }
