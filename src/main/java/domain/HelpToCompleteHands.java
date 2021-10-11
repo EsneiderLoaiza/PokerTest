@@ -110,4 +110,20 @@ public class HelpToCompleteHands {
         return 0;
     }
 
+    public static int findRepeatedPalo(Card[] cartas){
+        int highValue = 0;
+        String repeatedPalo = cartas[0].getPalo().getPaloValue();
+        int timesRepeated = 0;
+        for(int i=0; i<5; i++) {
+                if(repeatedPalo == cartas[i].getPalo().getPaloValue() && cartas[i].getValueCard().getValueCard() > highValue) {
+                    timesRepeated++;
+                    highValue = cartas[i].getValueCard().getValueCard();
+                    if(timesRepeated == 4){
+                        return  highValue;
+                    }
+                }
+        }
+        return 0;
+    }
+
 }
