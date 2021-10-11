@@ -18,4 +18,6 @@ public interface IManosPoker {
     
     public String poker(Player player1, Player player2);
 
+    public String color(Player player1, Player player2);
+
 }
