@@ -2,22 +2,22 @@ package domain.enums;
 
 public enum Palo {
 
-    C(0),
-    D(0),
-    H(0),
-    S(0);
+    C("C"),
+    D("D"),
+    H("H"),
+    S("S");
 
-    private int paloValue;
+    private String paloValue;
 
-    Palo(int paloValue) {
+    Palo(String paloValue) {
         this.paloValue = paloValue;
     }
 
-    public int getPaloValue() {
+    public String getPaloValue() {
         return paloValue;
     }
 
-    public void setPaloValue(int paloValue) {
+    public void setPaloValue(String paloValue) {
         this.paloValue = paloValue;
     }
 }
