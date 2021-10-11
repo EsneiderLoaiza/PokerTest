@@ -558,18 +558,76 @@ public class PokerTest {
     void testEscaleraColor2() {
         fail("no implementado");
     }
-
+    */
 
     // escalera real
     @DisplayName("Blanco: 10H JH QH KH AH  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera Real: Corazon ")
     @Test
     void testEscaleraReal() {
-        fail("no implementado");
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DIEZ, Palo.H);
+        listCard1[1] = new Card(ValueCard.JOTA, Palo.H);
+        listCard1[2] = new Card(ValueCard.QUEEN, Palo.H);
+        listCard1[3] = new Card(ValueCard.KING, Palo.H);
+        listCard1[4] = new Card(ValueCard.AS, Palo.H);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.escaleraReal(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana por escalera real";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 10C JC QC KC AC Negro gana. - con Escalera Real: Trebol")
     @Test
     void testEscaleraReal2() {
-        fail("no implementado");
-    }*/
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DIEZ, Palo.C);
+        listCard2[1] = new Card(ValueCard.JOTA, Palo.C);
+        listCard2[2] = new Card(ValueCard.QUEEN, Palo.C);
+        listCard2[3] = new Card(ValueCard.KING, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.C);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.escaleraReal(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana por escalera real";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
+    }
 }
