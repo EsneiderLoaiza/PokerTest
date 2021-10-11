@@ -110,5 +110,21 @@ public class ManosPokerImpl implements IManosPoker {
         }
         return cartaAlta(player1, player2);
     }
-    
+
+    public String color(Player player1, Player player2) {
+        Card[] cardsPlayer1 = player1.hand.getHand();
+        Card[] cardsPlayer2 = player2.hand.getHand();
+
+        int player1Value = HelpToCompleteHands.findRepeatedPalo(cardsPlayer1);
+        int player2Value = HelpToCompleteHands.findRepeatedPalo(cardsPlayer2);
+
+        if(player1Value > player2Value) {
+            return "(Blanco)Jugador 1 gana por valor mas alto con color";
+        }
+        if(player1Value < player2Value) {
+            return "(Negro)Jugador 2 gana por valor mas alto con color";
+        }
+        return cartaAlta(player1, player2);
+    }
+
 }
