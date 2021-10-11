@@ -127,4 +127,20 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
+    public String escaleraReal(Player player1, Player player2) {
+        Card[] cardsPlayer1 = player1.hand.getHand();
+        Card[] cardsPlayer2 = player2.hand.getHand();
+
+        boolean player1Value = HelpToCompleteHands.findRoyalFlush(cardsPlayer1);
+        boolean player2Value = HelpToCompleteHands.findRoyalFlush(cardsPlayer2);
+
+        if(player1Value == true && player2Value == false) {
+            return "(Blanco)Jugador 1 gana por escalera real";
+        }
+        if(player1Value == false && player2Value == true) {
+            return "(Negro)Jugador 2 gana por escalera real";
+        }
+        return cartaAlta(player1, player2);
+    }
+
 }

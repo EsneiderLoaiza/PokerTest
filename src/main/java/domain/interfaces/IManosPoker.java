@@ -20,4 +20,6 @@ public interface IManosPoker {
 
     public String color(Player player1, Player player2);
 
+    public String escaleraReal(Player player1, Player player2);
+
 }
