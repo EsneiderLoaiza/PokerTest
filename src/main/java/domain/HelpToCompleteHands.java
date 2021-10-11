@@ -1,5 +1,7 @@
 package domain;
 
+import domain.enums.ValueCard;
+
 public class HelpToCompleteHands {
 	
 	public static int highValueSearch(Card[] cartas){
@@ -124,6 +126,38 @@ public class HelpToCompleteHands {
                 }
         }
         return 0;
+    }
+
+    public static boolean findRoyalFlush(Card[] cartas){
+        int timesRepeated = 0;
+        int increase = 0;
+        boolean winner = false;
+        String repeatedPalo = cartas[0].getPalo().getPaloValue();
+        for(int i=0; i<5; i++) {
+            if(repeatedPalo == cartas[i].getPalo().getPaloValue()) {
+                timesRepeated++;
+                if(cartas[i].getValueCard().getValueCard() == ValueCard.DIEZ.getValueCard()) {
+                    increase++;
+                }
+                if(cartas[i].getValueCard().getValueCard() == ValueCard.JOTA.getValueCard()) {
+                    increase++;
+                }
+                if(cartas[i].getValueCard().getValueCard() == ValueCard.QUEEN.getValueCard()) {
+                    increase++;
+                }
+                if(cartas[i].getValueCard().getValueCard() == ValueCard.KING.getValueCard()) {
+                    increase++;
+                }
+                if(cartas[i].getValueCard().getValueCard() == ValueCard.AS.getValueCard()) {
+                    increase++;
+                }
+                if(timesRepeated == 4 && increase == 4){
+                    winner = true;
+                    return  winner;
+                }
+            }
+        }
+        return winner;
     }
 
 }
