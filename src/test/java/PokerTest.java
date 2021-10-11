@@ -388,20 +388,79 @@ public class PokerTest {
         assertEquals(expected, actual);
     }
 
-    /*
+
     // color
     @DisplayName("Blanco: 2H 3H 5H KH 8H  Negro: 2C 3H 4S 8C AH Blanco gana. - con color ")
     @Test
     void testColor() {
-        fail("no implementado");
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.H);
+        listCard1[3] = new Card(ValueCard.KING, Palo.H);
+        listCard1[4] = new Card(ValueCard.OCHO, Palo.H);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.color(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana por valor mas alto con color";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3C 4C AC RC Negro gana. - con color ")
     @Test
     void testColor2() {
-        fail("no implementado");
+        // Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.C);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.C);
+        listCard2[3] = new Card(ValueCard.AS, Palo.C);
+        listCard2[4] = new Card(ValueCard.QUEEN, Palo.C);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.color(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana por valor mas alto con color";
+        System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
+    /*
     //full house
     @DisplayName("Blanco: 2H 2D KS KC KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con full house ")
     @Test
