@@ -392,7 +392,7 @@ public class PokerTest {
     // color
     @DisplayName("Blanco: 2H 3H 5H KH 8H  Negro: 2C 3H 4S 8C AH Blanco gana. - con color ")
     @Test
-    void testColor() {
+    public void testColor() {
         // Given
 
         //PLAYER 1
@@ -427,7 +427,7 @@ public class PokerTest {
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3C 4C AC RC Negro gana. - con color ")
     @Test
-    void testColor2() {
+    public void testColor2() {
         // Given
 
         //PLAYER 1
@@ -563,7 +563,7 @@ public class PokerTest {
     // escalera real
     @DisplayName("Blanco: 10H JH QH KH AH  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera Real: Corazon ")
     @Test
-    void testEscaleraReal() {
+    public void testEscaleraReal() {
         // Given
 
         //PLAYER 1
@@ -598,7 +598,7 @@ public class PokerTest {
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 10C JC QC KC AC Negro gana. - con Escalera Real: Trebol")
     @Test
-    void testEscaleraReal2() {
+    public void testEscaleraReal2() {
         // Given
 
         //PLAYER 1
