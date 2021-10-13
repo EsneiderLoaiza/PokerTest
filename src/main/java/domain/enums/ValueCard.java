@@ -16,17 +16,17 @@ public enum ValueCard {
     KING(13),
     AS(14);
 
-    private int valueCard;
+    private int value;
 
-    ValueCard(int valueCard) {
-        this.valueCard = valueCard;
+    ValueCard(int value) {
+        this.value = value;
     }
 
-    public int getValueCard() {
-        return valueCard;
+    public int getValue() {
+        return value;
     }
 
-    public void setValueCard(int valueCard) {
-        this.valueCard = valueCard;
+    public void setValue(int value) {
+        this.value = value;
     }
 }

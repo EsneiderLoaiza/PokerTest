@@ -7,8 +7,8 @@ public class HelpToCompleteHands {
 	public static int highValueSearch(Card[] cartas){
         int highValue = 0;
         for(int i=0; i<5; i++) {
-            	if(cartas[i].getValueCard().getValueCard() > highValue) {
-            		highValue = cartas[i].getValueCard().getValueCard();
+            	if(cartas[i].getValueCard().getValue() > highValue) {
+            		highValue = cartas[i].getValueCard().getValue();
             	}
         }
         return  highValue;
@@ -19,8 +19,8 @@ public class HelpToCompleteHands {
         int repeatedValue = 0;
         for(int i=0; i<5; i++) {
             for (int j=i+1; j<5; j++) {
-                if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                    repeatedValue = cartas[i].getValueCard().getValueCard();
+                if(cartas[i].getValueCard().getValue() == cartas[j].getValueCard().getValue()) {
+                    repeatedValue = cartas[i].getValueCard().getValue();
                     return  repeatedValue;
                 }
             }
@@ -34,8 +34,8 @@ public class HelpToCompleteHands {
         int timesRepeated = 0;
         for(int i=0; i<5; i++) {
              for(int j=i+1; j<5; j++) {
-                 if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                     repeatedValue = cartas[i].getValueCard().getValueCard();
+                 if(cartas[i].getValueCard().getValue() == cartas[j].getValueCard().getValue()) {
+                     repeatedValue = cartas[i].getValueCard().getValue();
                      timesRepeated++;
                      if(timesRepeated == 2){
                          return  repeatedValue;
@@ -51,8 +51,8 @@ public class HelpToCompleteHands {
         int timesRepeated = 0;
         for(int i=0; i<5; i++) {
             for (int j=i+1; j<5; j++) {
-                if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                    repeatedValue = cartas[i].getValueCard().getValueCard();
+                if(cartas[i].getValueCard().getValue() == cartas[j].getValueCard().getValue()) {
+                    repeatedValue = cartas[i].getValueCard().getValue();
                     timesRepeated++;
                     if(timesRepeated == 3){
                         return  repeatedValue;
@@ -70,7 +70,7 @@ public class HelpToCompleteHands {
         int aux = 0;
         for(int i=1; i<5; i++) {
             for(int j=i+1 ; j<5; j++) {
-                if(cartas[j].getValueCard().getValueCard() > cartas[j+1].getValueCard().getValueCard()) {
+                if(cartas[j].getValueCard().getValue() > cartas[j+1].getValueCard().getValue()) {
                     cartas[5].setValueCard(cartas[j].getValueCard());
                     cartas[j].setValueCard(cartas[j+1].getValueCard());
                     cartas[j+1].setValueCard(cartas[5].getValueCard());
@@ -80,14 +80,14 @@ public class HelpToCompleteHands {
 
         for(int i=1; i<5; i++) {
             for (int j=i+1 ; j<5; j++){
-                if(cartas[i].getValueCard().getValueCard() > cartas[j].getValueCard().getValueCard() && 
-                cartas[j].getValueCard().getValueCard() == cartas[i].getValueCard().getValueCard() -1 &&
-                cartas[i].getValueCard().getValueCard() < cartas[j].getValueCard().getValueCard() &&
-                cartas[j].getValueCard().getValueCard() == cartas[i].getValueCard().getValueCard() +1){
+                if(cartas[i].getValueCard().getValue() > cartas[j].getValueCard().getValue() &&
+                cartas[j].getValueCard().getValue() == cartas[i].getValueCard().getValue() -1 &&
+                cartas[i].getValueCard().getValue() < cartas[j].getValueCard().getValue() &&
+                cartas[j].getValueCard().getValue() == cartas[i].getValueCard().getValue() +1){
                     increase++;
                 }
                 if(increase == 4) {
-                    return cartas[4].getValueCard().getValueCard();
+                    return cartas[4].getValueCard().getValue();
                 }
             }
         }
@@ -100,8 +100,8 @@ public class HelpToCompleteHands {
         int timesRepeated = 0;
         for(int i=0; i<5; i++) {
             for (int j=i+1; j<5; j++) {
-                if(cartas[i].getValueCard().getValueCard() == cartas[j].getValueCard().getValueCard()) {
-                    repeatedValue = cartas[i].getValueCard().getValueCard();
+                if(cartas[i].getValueCard().getValue() == cartas[j].getValueCard().getValue()) {
+                    repeatedValue = cartas[i].getValueCard().getValue();
                     timesRepeated++;
                     if(timesRepeated == 4){
                         return  repeatedValue;
@@ -117,9 +117,9 @@ public class HelpToCompleteHands {
         String repeatedPalo = cartas[0].getPalo().getPaloValue();
         int timesRepeated = 0;
         for(int i=0; i<5; i++) {
-                if(repeatedPalo == cartas[i].getPalo().getPaloValue() && cartas[i].getValueCard().getValueCard() > highValue) {
+                if(repeatedPalo == cartas[i].getPalo().getPaloValue() && cartas[i].getValueCard().getValue() > highValue) {
                     timesRepeated++;
-                    highValue = cartas[i].getValueCard().getValueCard();
+                    highValue = cartas[i].getValueCard().getValue();
                     if(timesRepeated == 4){
                         return  highValue;
                     }
@@ -134,11 +134,11 @@ public class HelpToCompleteHands {
         String repeatedPalo = cartas[0].getPalo().getPaloValue();
         for(int i=0; i<5; i++) {
             if(repeatedPalo == cartas[i].getPalo().getPaloValue()) {
-                 if(cartas[i].getValueCard().getValueCard() == ValueCard.DIEZ.getValueCard() ||
-                     cartas[i].getValueCard().getValueCard() == ValueCard.JOTA.getValueCard() ||
-                     cartas[i].getValueCard().getValueCard() == ValueCard.QUEEN.getValueCard() ||
-                     cartas[i].getValueCard().getValueCard() == ValueCard.KING.getValueCard() ||
-                     cartas[i].getValueCard().getValueCard() == ValueCard.AS.getValueCard()) {
+                 if(cartas[i].getValueCard().getValue() == ValueCard.DIEZ.getValue() ||
+                     cartas[i].getValueCard().getValue() == ValueCard.JOTA.getValue() ||
+                     cartas[i].getValueCard().getValue() == ValueCard.QUEEN.getValue() ||
+                     cartas[i].getValueCard().getValue() == ValueCard.KING.getValue() ||
+                     cartas[i].getValueCard().getValue() == ValueCard.AS.getValue()) {
                     	
                         itsRoyalFlush++;
                  }
