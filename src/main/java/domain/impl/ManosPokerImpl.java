@@ -18,10 +18,16 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.highValueSearch(cardsPlayer1);
         int player2Value = HelpToCompleteHands.highValueSearch(cardsPlayer2);
 
+        String winner;
+
          if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por carta alta";
+             player1.setWinnerMessage("(Blanco)Jugador 1 gana por carta alta");
+             winner = player1.getWinnerMessage();
+             return winner;
          }
-        return "(Negro)Jugador 2 gana por carta alta";
+        player2.setWinnerMessage("(Negro)Jugador 2 gana por carta alta");
+        winner = player2.getWinnerMessage();
+        return winner;
     }
 
     
@@ -33,11 +39,17 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.highValueSearchInParInPar(cardsPlayer1);
         int player2Value = HelpToCompleteHands.highValueSearchInParInPar(cardsPlayer2);
 
+        String winner;
+
         if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por par mas alto";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por par mas alto");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value < player2Value) {
-            return "(Negro)Jugador 2 gana por par mas alto";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por par mas alto");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
@@ -50,11 +62,17 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.highValueSearchInParInTwoPar(cardsPlayer1);
         int player2Value = HelpToCompleteHands.highValueSearchInParInTwoPar(cardsPlayer2);
 
+        String winner;
+
         if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por dos pares mas alto";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por dos pares mas alto");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value < player2Value) {
-            return "(Negro)Jugador 2 gana por dos pares mas alto";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por dos pares mas alto");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
@@ -67,11 +85,17 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.highValueSearchThreeTimes(cardsPlayer1);
         int player2Value = HelpToCompleteHands.highValueSearchThreeTimes(cardsPlayer2);
 
+        String winner;
+
         if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por terna mas alta";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por terna mas alta");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value < player2Value) {
-            return "(Negro)Jugador 2 gana por terna mas alta";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por terna mas alta");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
@@ -85,11 +109,17 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.reviewConsecutiveValues(cardsPlayer1);
         int player2Value = HelpToCompleteHands.reviewConsecutiveValues(cardsPlayer2);
 
+        String winner;
+
         if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por escalera mas alta";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por escalera mas alta");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value < player2Value) {
-            return "(Negro)Jugador 2 gana por escalera mas alto";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por escalera mas alto");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
@@ -102,11 +132,17 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.findFourRepeatedValues(cardsPlayer1);
         int player2Value = HelpToCompleteHands.findFourRepeatedValues(cardsPlayer2);
 
+        String winner;
+
         if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por poker mas alto";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por poker mas alto");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value < player2Value) {
-            return "(Negro)Jugador 2 gana por poker mas alto";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por poker mas alto");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
@@ -118,11 +154,17 @@ public class ManosPokerImpl implements IManosPoker {
         int player1Value = HelpToCompleteHands.findRepeatedPalo(cardsPlayer1);
         int player2Value = HelpToCompleteHands.findRepeatedPalo(cardsPlayer2);
 
+        String winner;
+
         if(player1Value > player2Value) {
-            return "(Blanco)Jugador 1 gana por valor mas alto con color";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por valor mas alto con color");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value < player2Value) {
-            return "(Negro)Jugador 2 gana por valor mas alto con color";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por valor mas alto con color");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
@@ -134,11 +176,17 @@ public class ManosPokerImpl implements IManosPoker {
         boolean player1Value = HelpToCompleteHands.findRoyalFlush(cardsPlayer1);
         boolean player2Value = HelpToCompleteHands.findRoyalFlush(cardsPlayer2);
 
+        String winner;
+
         if(player1Value == true && player2Value == false) {
-            return "(Blanco)Jugador 1 gana por escalera real";
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana por escalera real");
+            winner = player1.getWinnerMessage();
+            return winner;
         }
         if(player1Value == false && player2Value == true) {
-            return "(Negro)Jugador 2 gana por escalera real";
+            player2.setWinnerMessage("(Negro)Jugador 2 gana por escalera real");
+            winner = player2.getWinnerMessage();
+            return winner;
         }
         return cartaAlta(player1, player2);
     }
