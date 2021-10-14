@@ -383,7 +383,7 @@ public class PokerTest {
         final String actual = manosPoker.escalera(player1, player2);
 
         //Then
-        final String expected = "(Negro)Jugador 2 gana por escalera mas alto";
+        final String expected = "(Negro)Jugador 2 gana por escalera mas alta";
         System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
