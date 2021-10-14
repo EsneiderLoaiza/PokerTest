@@ -4,6 +4,10 @@ import domain.enums.ValueCard;
 
 public class HelpToCompleteHands {
 	
+	public void delDiezAlAs() {
+		
+	}
+	
 	public static int highValueSearch(Card[] cartas){
         int highValue = 0;
         for(int i=0; i<5; i++) {
