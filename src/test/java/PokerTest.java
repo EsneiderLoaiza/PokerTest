@@ -47,7 +47,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 14 por carta alta";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
 
     }
@@ -84,7 +84,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 13 por carta alta";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -122,7 +122,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 13 por par mas alto";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -159,7 +159,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 14 por par mas alto";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -198,7 +198,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 13 por dos pares mas alto";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -234,7 +234,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 14 por dos pares mas alto";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -272,7 +272,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 13 por terna mas alta";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -308,7 +308,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 14 por terna mas alta";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -347,7 +347,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 6 por escalera mas alta";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -384,7 +384,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 13 por escalera mas alta";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -421,7 +421,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 13 por valor mas alto con color";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -456,7 +456,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 14 por valor mas alto con color";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -506,7 +506,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana con carta 2 por poker mas alto";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -541,24 +541,82 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana con carta 2 por poker mas alto";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
-    /*
+    
     // escalera color
     @DisplayName("Blanco: 2H 3H 4H 5H 6H  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera Color: Corazon")
     @Test
-    void testEscaleraColor() {
-        fail("no implementado");
+    public void testEscaleraColor() {
+    	// Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard1[2] = new Card(ValueCard.CUATRO, Palo.H);
+        listCard1[3] = new Card(ValueCard.CINCO, Palo.H);
+        listCard1[4] = new Card(ValueCard.SEIS, Palo.H);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.escaleraDeColor(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana con carta 6 por escalera de color";
+        //System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
     @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 3C 4C 5C 6C Negro gana. - con Escalera Color: Trebol")
     @Test
-    void testEscaleraColor2() {
-        fail("no implementado");
+    public void testEscaleraColor2() {
+    	// Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.C);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.C);
+        listCard2[3] = new Card(ValueCard.CINCO, Palo.C);
+        listCard2[4] = new Card(ValueCard.SEIS, Palo.C);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.escaleraDeColor(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana con carta 6 por escalera de color";
+        //System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
-    */
+    
 
     // escalera real
     @DisplayName("Blanco: 10H JH QH KH AH  Negro: 2C 3H 4S 8C AH Blanco gana. - con Escalera Real: Corazon ")
@@ -592,7 +650,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Blanco)Jugador 1 gana por escalera real";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 
@@ -627,7 +685,7 @@ public class PokerTest {
 
         //Then
         final String expected = "(Negro)Jugador 2 gana por escalera real";
-        System.out.println("expected***"+expected+" actual***"+actual);
+        //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
     }
 }
