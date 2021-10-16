@@ -2,6 +2,10 @@ package domain;
 
 import domain.enums.ValueCard;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
 public class HelpToCompleteHands {
 	
 	public void delDiezAlAs() {
@@ -69,30 +73,25 @@ public class HelpToCompleteHands {
 	
 	
 	public static int reviewConsecutiveValues(Card[] cartas){
-        //Arrays.sort(cartas);
-        int increase = 0;
-        int aux = 0;
-        for(int i=1; i<5; i++) {
-            for(int j=i+1 ; j<5; j++) {
-                if(cartas[j].getValueCard().getValue() > cartas[j+1].getValueCard().getValue()) {
-                    cartas[5].setValueCard(cartas[j].getValueCard());
-                    cartas[j].setValueCard(cartas[j+1].getValueCard());
-                    cartas[j+1].setValueCard(cartas[5].getValueCard());
-                }
-            }
+		
+        ArrayList<Integer> valuesCard = new ArrayList<Integer>();
+        
+        for (int i=0; i<5; i++) {
+            valuesCard.add(cartas[i].getValueCard().getValue());
         }
+        Collections.sort(valuesCard);
 
-        for(int i=1; i<5; i++) {
-            for (int j=i+1 ; j<5; j++){
-                if(cartas[i].getValueCard().getValue() > cartas[j].getValueCard().getValue() &&
-                cartas[j].getValueCard().getValue() == cartas[i].getValueCard().getValue() -1 &&
-                cartas[i].getValueCard().getValue() < cartas[j].getValueCard().getValue() &&
-                cartas[j].getValueCard().getValue() == cartas[i].getValueCard().getValue() +1){
-                    increase++;
-                }
-                if(increase == 4) {
-                    return cartas[4].getValueCard().getValue();
-                }
+        int valueConsecutive = 0;
+        int highValue = 0;
+        
+        for(int i=0; i<5; i++) {
+            if(i <= 3 && valuesCard.get(i) == (valuesCard.get(i+1)-1)) {
+               valueConsecutive++;
+               
+               if(valueConsecutive == 4) {
+                  highValue = valuesCard.get(4);
+                  return highValue;
+                 }
             }
         }
         return 0;

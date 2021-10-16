@@ -147,6 +147,7 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
+    
     public String color(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
@@ -169,6 +170,7 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
+    
     public String escaleraReal(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
