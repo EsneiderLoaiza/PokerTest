@@ -17,6 +17,8 @@ public interface IManosPoker {
     public String escalera(Player player1, Player player2);
 
     public String color(Player player1, Player player2);
+
+    public String fullHouse(Player player1, Player player2);
     
     public String poker(Player player1, Player player2);
 

@@ -147,7 +147,29 @@ public class ManosPokerImpl implements IManosPoker {
         return cartaAlta(player1, player2);
     }
 
-    
+    public String fullHouse(Player player1, Player player2) {
+        Card[] cardsPlayer1 = player1.hand.getHand();
+        Card[] cardsPlayer2 = player2.hand.getHand();
+
+        int player1CardWinner = HelpToCompleteHands.searchFullHouse(cardsPlayer1);
+        int player2CardWinner = HelpToCompleteHands.searchFullHouse(cardsPlayer2);
+
+        String winner;
+
+        if(player1CardWinner > player2CardWinner) {
+            player1.setWinnerMessage("(Blanco)Jugador 1 gana con carta "+player1CardWinner+" por full house");
+            winner = player1.getWinnerMessage();
+            return winner;
+        }
+        if(player1CardWinner < player2CardWinner) {
+            player2.setWinnerMessage("(Negro)Jugador 2 gana con carta "+player2CardWinner+" por full house");
+            winner = player2.getWinnerMessage();
+            return winner;
+        }
+        return cartaAlta(player1, player2);
+    }
+
+
     public String poker(Player player1, Player player2) {
         Card[] cardsPlayer1 = player1.hand.getHand();
         Card[] cardsPlayer2 = player2.hand.getHand();
