@@ -460,20 +460,78 @@ public class PokerTest {
         assertEquals(expected, actual);
     }
 
-    /*
+    
     //full house
     @DisplayName("Blanco: 2H 2D KS KC KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con full house ")
     @Test
-    void testFullHouse() {
-        fail("no implementado");
+    public void testFullHouse() {
+    	// Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.DOS, Palo.D);
+        listCard1[2] = new Card(ValueCard.KING, Palo.S);
+        listCard1[3] = new Card(ValueCard.KING, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.TRES, Palo.H);
+        listCard2[2] = new Card(ValueCard.CUATRO, Palo.S);
+        listCard2[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.fullHouse(player1, player2);
+
+        //Then
+        final String expected = "(Blanco)Jugador 1 gana con carta 13 por full house";
+        //System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
 
-    @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 2H 3S AC AH Negro gana. - con full house ")
+    @DisplayName("Blanco: 2H 3D 5S 8C KD  Negro: 2C 2H AS AC AH Negro gana. - con full house ")
     @Test
-    void testFullHouse2() {
-        fail("no implementado");
+    public void testFullHouse2() {
+    	// Given
+
+        //PLAYER 1
+
+        Card[] listCard1 = new Card[5];
+        listCard1[0] = new Card(ValueCard.DOS, Palo.H);
+        listCard1[1] = new Card(ValueCard.TRES, Palo.D);
+        listCard1[2] = new Card(ValueCard.CINCO, Palo.S);
+        listCard1[3] = new Card(ValueCard.OCHO, Palo.C);
+        listCard1[4] = new Card(ValueCard.KING, Palo.D);
+        Player player1 = new Player(new Hand(listCard1));
+
+        //PLAYER 2
+
+        Card[] listCard2 = new Card[5];
+        listCard2[0] = new Card(ValueCard.DOS, Palo.C);
+        listCard2[1] = new Card(ValueCard.DOS, Palo.H);
+        listCard2[2] = new Card(ValueCard.AS, Palo.S);
+        listCard2[3] = new Card(ValueCard.AS, Palo.C);
+        listCard2[4] = new Card(ValueCard.AS, Palo.H);
+        Player player2 = new Player(new Hand(listCard2));
+
+        // When
+        ManosPokerImpl manosPoker = new ManosPokerImpl();
+        final String actual = manosPoker.fullHouse(player1, player2);
+
+        //Then
+        final String expected = "(Negro)Jugador 2 gana con carta 14 por full house";
+        //System.out.println("expected***"+expected+" actual***"+actual);
+        assertEquals(expected, actual);
     }
-	*/
+	
     // poker
     @DisplayName("Blanco: 2H 2D 2S 2C KD  Negro: 2C 3H 4S 8C AH Blanco gana. - con poker: 2 ")
     @Test
