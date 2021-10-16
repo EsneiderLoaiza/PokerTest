@@ -131,6 +131,22 @@ public class HelpToCompleteHands {
         return 0;
     }
 
+    public static int valuesConsecutivesWithColor(Card[] cartas) {
+
+        String repeatedPalo = cartas[0].getPalo().getPaloValue();
+        int timesRepeated = 0;
+        for(int i=0; i<5; i++) {
+            if(repeatedPalo == cartas[i].getPalo().getPaloValue()) {
+                timesRepeated++;
+                if(timesRepeated == 4){
+                    return  reviewConsecutiveValues(cartas);
+                }
+            }
+        }
+
+	    return 0;
+    }
+
     public static boolean findRoyalFlush(Card[] cartas){
         int itsRoyalFlush = 0;
         boolean winner = false;
