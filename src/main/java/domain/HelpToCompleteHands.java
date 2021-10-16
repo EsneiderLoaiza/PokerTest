@@ -131,6 +131,26 @@ public class HelpToCompleteHands {
         return 0;
     }
 
+    public static int searchFullHouse(Card[] cartas) {
+    	
+        int isFullHouse = 0;
+        int threeValuesRepeated = highValueSearchThreeTimes(cartas);
+        int twoValuesRepeated = 0;
+
+        for (int i=0; i<5; i++) {
+            if(cartas[i].getValueCard().getValue() != threeValuesRepeated) {
+                twoValuesRepeated = cartas[i].getValueCard().getValue();
+                
+                if(twoValuesRepeated == cartas[i].getValueCard().getValue()){
+                    isFullHouse = threeValuesRepeated;
+                    return isFullHouse;
+                }
+            }
+        }
+
+	    return 0;
+    }
+
     public static int valuesConsecutivesWithColor(Card[] cartas) {
 
         String repeatedPalo = cartas[0].getPalo().getPaloValue();
