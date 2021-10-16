@@ -8,8 +8,25 @@ import java.util.Collections;
 
 public class HelpToCompleteHands {
 	
-	public void delDiezAlAs() {
-		
+	public static String convertValueToString(int valueCard) {
+        String cadenavalueCard;
+		if(valueCard == 11) {
+            cadenavalueCard = "Jota";
+            return cadenavalueCard;
+        }
+        if(valueCard == 12) {
+            cadenavalueCard = "Queen";
+            return cadenavalueCard;
+        }
+        if(valueCard == 13) {
+            cadenavalueCard = "King";
+            return cadenavalueCard;
+        }
+        if(valueCard == 14) {
+            cadenavalueCard = "As";
+            return cadenavalueCard;
+        }
+        return "x";
 	}
 	
 	public static int highValueSearch(Card[] cartas){

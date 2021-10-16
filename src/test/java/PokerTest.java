@@ -46,7 +46,7 @@ public class PokerTest {
         final String actual = manosPoker.cartaAlta(player1, player2);
 
         //Then
-        final String expected = "(Negro)Jugador 2 gana con carta 14 por carta alta";
+        final String expected = "(Negro)Jugador 2 gana con carta As por carta alta";
         //System.out.println("expected***"+expected+" actual***"+actual);
         assertEquals(expected, actual);
 
