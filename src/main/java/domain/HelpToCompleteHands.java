@@ -28,6 +28,15 @@ public class HelpToCompleteHands {
         }
         return "x";
 	}
+
+	public static String cardsToString(int ValueCard) {
+	    String valueCadena;
+        if(ValueCard >= 11 && ValueCard <= 14) {
+            valueCadena = HelpToCompleteHands.convertValueToString(ValueCard);
+            return valueCadena;
+        }
+	    return null;
+    }
 	
 	public static int highValueSearch(Card[] cartas){
         int highValue = 0;
